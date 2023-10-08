@@ -531,7 +531,39 @@ namespace WiiLayoutEditor
 
         private void toolStripTextBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
-			
+			// Allow digits, decimal point, and negative sign
+			if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.') && (e.KeyChar != '-'))
+			{
+				e.Handled = true;
+			}
+
+			// Allow only one decimal point
+			if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+			{
+				e.Handled = true;
+			}
+
+			// Allow negative sign only at the beginning
+			if ((e.KeyChar == '-') && ((sender as TextBox).SelectionStart != 0))
+			{
+				e.Handled = true;
+			}
+
+			// When Enter key is pressed, update the variable
+			if (e.KeyChar == (char)Keys.Enter)
+			{
+				if (float.TryParse(toolStripTextBox1.Text, out float parsedValue))
+				{
+					frameRate = parsedValue;
+					Console.WriteLine("FPS changed to " + parsedValue);
+				}
+				else
+				{
+					// Handle invalid input (e.g., display an error message)
+				}
+			}
 		}
+
+
     }
 }
