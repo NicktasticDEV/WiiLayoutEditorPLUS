@@ -14,6 +14,10 @@ namespace WiiLayoutEditor
 {
 	public partial class Form1 : Form
 	{
+		private float frameRate = 60.0f; // Desired frame rate (60 fps)
+		private float frameTime; // Time elapsed since the last frame
+
+
 		IO.BRLYT Layout = null;
 		public Form1()
 		{
@@ -446,6 +450,19 @@ namespace WiiLayoutEditor
 
 		private void timer1_Tick(object sender, EventArgs e)
 		{
+			float currentTime = (float)DateTime.Now.TimeOfDay.TotalSeconds;
+			float deltaTime = currentTime - frameTime;
+
+			frameTime = currentTime;
+
+			if (FrameNr >= Animation.PAI1.NrFrames) FrameNr = 0;
+			System.Diagnostics.Stopwatch w = new System.Diagnostics.Stopwatch();
+			w.Start();
+			Render();
+			w.Stop();
+			FrameNr += deltaTime * frameRate;
+
+			/*
 			FrameNr += 0.001f * 60f;
 			if (FrameNr >= Animation.PAI1.NrFrames) FrameNr = 0;
 			System.Diagnostics.Stopwatch w = new System.Diagnostics.Stopwatch();
@@ -453,6 +470,7 @@ namespace WiiLayoutEditor
 			Render();
 			w.Stop();
 			FrameNr += (float)(w.Elapsed.TotalSeconds * 60f);
+			*/
 		}
 
 		private void saveToolStripButton_Click(object sender, EventArgs e)
@@ -504,5 +522,16 @@ namespace WiiLayoutEditor
 				}
 			}
 		}
-	}
+
+        private void menuItem13_Click(object sender, EventArgs e)
+        {
+			UI.About about = new UI.About();
+			about.ShowDialog();
+        }
+
+        private void toolStripTextBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+			
+		}
+    }
 }
