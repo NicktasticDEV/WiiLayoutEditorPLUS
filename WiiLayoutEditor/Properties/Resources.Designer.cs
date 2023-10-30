@@ -193,6 +193,16 @@ namespace WiiLayoutEditor.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Screenshot_2023_03_08_205927 {
+            get {
+                object obj = ResourceManager.GetObject("Screenshot_2023_03_08_205927", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap slide {
             get {
                 object obj = ResourceManager.GetObject("slide", resourceCulture);

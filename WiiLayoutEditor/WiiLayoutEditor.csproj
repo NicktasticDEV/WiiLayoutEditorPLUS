@@ -264,6 +264,7 @@
     <None Include="Resources\Save.bmp" />
     <None Include="Resources\LoadBRLAN.bmp" />
     <None Include="Resources\play.bmp" />
+    <None Include="Resources\Screenshot 2023-03-08 205927.png" />
     <Content Include="Resources\wave.png" />
     <None Include="Resources\application-text-image.png" />
     <None Include="Resources\film-timeline.png" />
