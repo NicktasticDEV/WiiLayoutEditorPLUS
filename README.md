@@ -1,4 +1,7 @@
-# WiiLayoutEditor
+# WiiLayoutEditor Plus
 BRLYT layout editor for the wii.
 
-**This project is not being maintained anymore!**
+A sorta improved version of the original WiiLayoutEditor
+
+New features added to Plus (as of now):
+-Fixed playback (Fixed a bug where playback was slow)
